@@ -73,8 +73,17 @@
 			turn it around! 
 			*/
 			function update() {
-			 positionX = positionX + 10;
-			 moveBoxTo(positionX);	
+			 positionX = positionX + speed;
+			 moveBoxTo(positionX);
+			 boardWidth = 1200;
+			 speed = 100;
+			 if (positionX > 1200) {
+				// change direction of the box
+				speed = -speed;
+			 } if (positionX < 0) {
+				 //change speed to be positive 
+				 speed = speed;
+			 }	
 
 			};
 
@@ -87,10 +96,16 @@
 			  positionX = 0;
 			  points = points + 1;
 			  changeBoxText(points);
-
-
+              if (speed >= 0) {
+				//increase speed by 3 
+				speed + 3;
+			  } else if (speed < 0) 
+			  //decrease speed by 3
+			    speed - 3;
 
 			};
+			var speed = 10;
+
 		})();
 	</script>
 </body>
